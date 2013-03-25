@@ -6,6 +6,14 @@ server_path="/home/nullblock/660"
 restart_command="service minecraft restart"
 say_command="service minecraft say"
 
+function monitor() {
+  while [[ 1 ]]
+   do
+    server_check
+    sleep 5
+  done
+}
+
 function server_check() {
   cd $server_path/crash-reports/
   lastfile=$(ls -Art | tail -n 1 | grep crash | grep server)
@@ -19,14 +27,6 @@ function server_check() {
      eval $say_command "Shit just got real. Server crashed."
      eval $restart_command
   fi
-}
-
-function monitor() {
-  while [[ 1 ]]
-   do
-    server_check
-    sleep 5
-  done
 }
 
 monitor
