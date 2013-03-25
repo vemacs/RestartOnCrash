@@ -16,5 +16,6 @@ To use (be sure to configure it first)
 --------------------------------------
 
     wget https://raw.github.com/vemacs/RestartOnCrash/master/roc.sh
+    chmod +x roc.sh
     screen -S roc
     ./roc.sh
