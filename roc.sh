@@ -19,14 +19,16 @@ function server_check() {
   lastfile=$(ls -Art | tail -n 1 | grep crash | grep server)
   timestamp=$(stat --printf=%y $server_path/crash-reports/$lastfile | cut -d. -f1 | tr -d '-' | tr -d ':' | tr -d " ")
   secondsDiff=$(( `date '+%Y%m%d%H%M%S'` - $timestamp ))
-  if [ $secondsDiff -gt 6 ] 
+  if [ $secondsDiff -gt 5 ] 
    then
      ##do nothing
+     echo "We're still alive!"
    else
      echo "Crashed! Report: $lastfile"
-     eval $say_command "Shit just got real. Server crashed."
+     eval $say_command \"Shit just got real. Server crashed.\"
      eval $restart_command
   fi
 }
 
+echo "Starting ROC with directory $server_path!"
 monitor
