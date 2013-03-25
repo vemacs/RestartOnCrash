@@ -1,5 +1,5 @@
 RestartOnCrash
---------------
+==============
 
 This is designed to be used with [minecraft-init](https://github.com/Ahtenus/minecraft-init).
 
