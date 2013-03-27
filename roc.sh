@@ -3,7 +3,7 @@
 ##Generic Minecraft Crash Detector by vemacs
 
 server_path='/home/nullblock/660'
-restart_command='/etc/init.d/minecraft say "Shit just got real. Restart initiated." && service minecraft restart'
+restart_command='/etc/init.d/minecraft say "Shit just got real. Restart initiated." && /etc/init.d/minecraft restart'
 check_seconds=15
 
 function monitor() {
